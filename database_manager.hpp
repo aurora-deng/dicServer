@@ -2,6 +2,7 @@
 #define DATABASE_MANAGER_H
 
 #include<bits/stdc++.h>
+#include<vector>
 #include<sqlite3.h>
 #include<mutex>
 #include<memory>    //智能指针头文件
