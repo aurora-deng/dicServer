@@ -67,4 +67,4 @@ class DatabaseManger
 
 
 
-#endif  //DATABASE_MANAGER_H
+#endif  //DATABASE_MANAGER_H_OVER
