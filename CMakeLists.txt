@@ -4,29 +4,31 @@ project(dict_client)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# 查找sqlite3（客户端可能不需要，为未来扩展做准备）
-
-find_package(SQLite3)
-
-# 找到线程库
+# 查找包
+find_package(SQLite3)          # 找不到会继续走，不会 fatal
 find_package(Threads REQUIRED)
 
-# 添加可执行文件
-add_executable(${project_name}
+# 生成可执行文件
+add_executable(${PROJECT_NAME}      # ← 全大写
     client.cpp
     main.cpp
     network.cpp
 )
 
-
-# 包含当前目录
-target_include_directories(${project_name} private ${cmake_current_source_dir})
-
+# 头文件搜索路径
+target_include_directories(${PROJECT_NAME} PRIVATE   # ← 大写 + 关键字
+    ${CMAKE_CURRENT_SOURCE_DIR}                      # ← 全大写
+)
 
 # 链接库
-target_link_libraries(${project_name} private threads::threads)
+target_link_libraries(${PROJECT_NAME} PRIVATE        # ← 全大写 + 关键字
+    Threads::Threads                                 # ← 官方目标名大小写
+)
 
-# 设置调试编译选项
-if(camke_build_type strequal "Debug")
-                target_compile_options(${project_name} private -Wall -wextra -g)
+# Debug 附加选项
+string(TOLOWER "${CMAKE_BUILD_TYPE}" build_type)
+if(build_type STREQUAL "debug")
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        -Wall -Wextra -g
+    )
 endif()

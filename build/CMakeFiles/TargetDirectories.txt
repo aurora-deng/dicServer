@@ -1,0 +1,3 @@
+/home/pikachu/github/Client/dicServer/build/CMakeFiles/dict_client.dir
+/home/pikachu/github/Client/dicServer/build/CMakeFiles/edit_cache.dir
+/home/pikachu/github/Client/dicServer/build/CMakeFiles/rebuild_cache.dir
