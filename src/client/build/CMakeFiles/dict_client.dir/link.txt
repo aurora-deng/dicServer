@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/dict_client.dir/client.cpp.o CMakeFiles/dict_client.dir/main.cpp.o CMakeFiles/dict_client.dir/network.cpp.o -o dict_client 
